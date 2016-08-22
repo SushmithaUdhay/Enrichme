@@ -8,9 +8,7 @@ class Codechef
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		Scanner sc = new Scanner(System.in);
-		
-		int n=0,p=0,neg=0,pos=0;
-		
+		int n=0,p=0,neg=0,pos=0,count=0;
 		int range = sc.nextInt();
 		int[] array = new int[range];
 		int[] out = new int[range];
@@ -22,21 +20,18 @@ class Codechef
 		Arrays.sort(array);
 		
 		for(int i=0;i<range;i++){
-		    if(array[i] >=0)
-		      pos++;
-		    if(array[i]<0)
-		        neg++;
+		    if(array[i] < 0)
+		      count++;
+		      if(array[i]>=0)
+		      break;
 		}
-		
+		neg = count;
+		pos = range - count;
 		int[] negarr = new int[neg];
 		int[] posarr = new int[pos];
 		
-		for(int i=0;i<range;i++){
-		    if(array[i] >=0)
-		      posarr[p++] = array[i];
-		    if(array[i]<0)
-		        negarr[n++] = array[i];
-		}
+		negarr = Arrays.copyOfRange(array,0,neg);
+		posarr = Arrays.copyOfRange(array,count,range);
 		
 		out = mergePosNeg(negarr,posarr);
 		for(int i=0;i<range;i++){
