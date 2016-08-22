@@ -52,9 +52,9 @@ class Codechef
 
 
 /*
-input
+input:
 10,0,9,-9,8,-8,-7,-6,4,3,-1
-output
+output:
 0,-1,3,-6,4,-7,8,-8,9,-9
 
 */
